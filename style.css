@@ -1,0 +1,15 @@
+.carrusel{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#carouselExampleFade{
+    height:70vh;
+    width: 100%;
+}
+
+#carouselExampleFade img{
+    height: 100%;
+    width: 100%;
+}
