@@ -1,32 +1,40 @@
 class Productos {
-    constructor(imagen, nombre, precio, cantidad) {
+    constructor(imagen, nombre, precio, cantidad, id) {
         this.imagen = imagen
         this.nombre = nombre
         this.precio = precio
         this.cantidad = cantidad
+        this.id = id
     }
 }
 
 var producto1 = new Productos (
-    "trishot.jpg",
-    "Alfajor Tri Shot",
-    "$70"
+    "trisho.jpg"
+    , "Alfajor Tri Shot"
+    , "70"
+    , "60gr"
+    , 1
 )
 
 var producto2 = new Productos (
-    "cadburyFrutilla.jpg",
-    "Chocolate Cadbury Yoghurt Frutilla",
-    "$110"
+    "cadburyFrutilla.jpg"
+    , "Chocolate Cadbury Yoghurt Frutilla"
+    , "70"
+    , "25g"
+    , 2
 )
 
 var producto3 = new Productos (
-    "Franui.jpg",
-    "Fra-Nui -Frambuesas Cubiertas Con Chocolate",
-    "$300"
+    "Franui.jpg"
+    , "Fra-Nui -Frambuesas Cubiertas Con Chocolate"
+    , "300"
+    , "150gr"
+    , 3
 )
 
 let listaProductos = [];
 listaProductos.push(producto1,producto2,producto3)
+recorrerProductos()
 
 function recorrerProductos(){
     let containerProductos = document.getElementById("container-productos")
@@ -39,35 +47,41 @@ function recorrerProductos(){
 function createCard(producto){
     
     let containerProductos = document.getElementById("container-productos")
+    
     let div_card = document.createElement("div")
+
     div_card.classList.add("card")
+
     let img_card = document.createElement("img")
     img_card.classList.add("img-card")
-    img_card.src = "./img/" + Productos.imagen
+    img_card.src = "./img/" + producto.imagen
     div_card.appendChild(img_card)
+
     let p_card = document.createElement("p")
-    p_card.textCoxtent = `${Productos.nombre}, ${Productos.precio}, ${Productos.cantidad} `
+    p_card.textContent = `${producto.nombre}, $${producto.precio}, ${producto.cantidad} `
     p_card.classList.add("card-text")
     div_card.appendChild(p_card)
+
     let button_card = document.createElement("button")
     button_card.classList.add("btn-card")
     button_card.textContent = "Comprar"
     button_card.addEventListener('click', clickButton)
     button_card.setAttribute("id", producto.id)
     div_card.appendChild(button_card)
+
     containerProductos.appendChild(div_card)
 }
 
 function clickButton(btn){
-    let producto = listaProductos.find(x=> x.id.toString() === btn.target.id)
+    let producto = listaProductos.find(x=>x.id.toString() === btn.target.id)
     addItemCarrito(producto)
 }
 
-function addItemCarrito(producto){
-    let listCarrito = document.getElementById("list-carrito")
-    let liCarrito = document.createElement("li")
-    liCarrito.textCoxtent = `${Productos.nombre}, ${Productos.precio}, ${Productos.cantidad} `
-    listCarrito.appendChild(liCarrito)
+function addItemCarrito(prdto) {
+    let listCarrito = document.getElementById("list-carrito");
+    let liCarrito = document.createElement("li");
+    liCarrito.textContent = `${prdto.nombre}, $${prdto.precio}, ${prdto.cantidad} `;
+    listCarrito.appendChild(liCarrito);
 }
 
 function ordenarPorPrecio(){
@@ -85,11 +99,11 @@ function sortValues(a,b){
 }
 
 function filtrarTipo(){
-    let filtro = document.getElementById('filtroTipo')
-    let listFiltrada = listProductos.filter(x=> x.tipo.toUpperCase().includes(filtro.value.toUpperCase()))
+    let filtro = document.getElementById("filtroTipo")
+    let listFiltrada = listaProductos.filter(x=> x.tipo.toUpperCase().includes(filtro.value.toUpperCase()))
     let containerProductos = document.getElementById("container-productos")
     containerProductos.innerHTML =''
     listFiltrada.forEach(x=>{
-        createCard(x)
+        createCard(x);
     })
 }
