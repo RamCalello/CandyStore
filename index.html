@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Candy Shop</h1>
-    <section class="carrusel">
+    <!-- <section class="carrusel">
 
         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
@@ -32,7 +32,7 @@
               <span class="sr-only">Next</span>
             </a>
         </div>
-    </section>
+    </section> -->
 
     <section class="historia">
         <h2>Nuestra Historia</h2>
@@ -40,10 +40,22 @@
 
     </section>
 
-    <section id="productos">
-        
-        
-    </section>
+    <div class="container-acciones">
+        <input type="text" placeholder="Filtrar Nombre" onkeyup="filtrarTipo()" id="filtroTipo">
+        <button onclick="ordenarPorPrecio()">Ordenar por precio</button>
+    </div>
+
+    <div id="container-productos" class="container-productos">      
+          
+    </div>
+
+    <div id="carrito" class="carrito">
+        <ul id="list-carrito">
+
+        </ul>
+    </div>
+    
+    <script src="./script.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
