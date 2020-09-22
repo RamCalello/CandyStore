@@ -100,7 +100,8 @@ function sortValues(a,b){
 
 function filtrarTipo(){
     let filtro = document.getElementById("filtroTipo")
-    let listFiltrada = listaProductos.filter(x=> x.tipo.toUpperCase().includes(filtro.value.toUpperCase()))
+    //OJO ACA, USABAN EN FILTER UNA PROPIEDADAD TIPO QUE EN EL OBJETO NO EXISTE, LA CAMBIE POR NOMBRE (x.nombre)
+    let listFiltrada = listaProductos.filter(x=> x.nombre.toUpperCase().includes(filtro.value.toUpperCase()))
     let containerProductos = document.getElementById("container-productos")
     containerProductos.innerHTML =''
     listFiltrada.forEach(x=>{
