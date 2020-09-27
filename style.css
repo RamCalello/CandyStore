@@ -1,3 +1,15 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f6f5ae;
+}
+
+@font-face {
+    font-family: "candy";
+    src: url(./font/Candy\ Shop\ Black\ Personal\ Use.ttf);
+}
+
+
 .carrusel{
     display: flex;
     align-content: center;
@@ -13,3 +25,8 @@
     height: 100%;
     width: 100%;
 }
+
+h1, h2, p {
+    font-family: "candy";
+}
+

@@ -8,7 +8,7 @@ class Productos {
 }
 
 var producto1 = new Productos (
-    "trishot.jpg",
+    "trisho.jpg",
     "Alfajor Tri Shot",
     "$70"
 )
@@ -86,7 +86,7 @@ function sortValues(a,b){
 
 function filtrarTipo(){
     let filtro = document.getElementById('filtroTipo')
-    let listFiltrada = listProductos.filter(x=> x.tipo.toUpperCase().includes(filtro.value.toUpperCase()))
+    let listFiltrada = listProductos.filter(x=> x.nombre.toUpperCase().includes(filtro.value.toUpperCase()))
     let containerProductos = document.getElementById("container-productos")
     containerProductos.innerHTML =''
     listFiltrada.forEach(x=>{
